@@ -76,22 +76,6 @@ for (let i = 0; i < text.length; i++) {
 }
 // Web-page onload
 window.onload = function () {
-  gId("moveKeybord").addEventListener(
-    "touchmove",
-    function (e) {
-      wH = window.innerHeight;
-      tY = e.touches[0].clientY;
-      eL = gId("tastatur");
-      resY = wH - tY - eL.offsetHeight;
-      if (resY < 0) {
-        resY = 0;
-      } else if (resY > wH / 2) {
-        resY = wH / 2;
-      }
-      eL.style.bottom = resY + "px";
-    },
-    false
-  );
   createTastur();
 };
 
@@ -132,6 +116,7 @@ let clearPlayer = () => {
   gId("g6").setAttribute("data", "false");
   gId("g6").setAttribute("l", "false");
   gId("g6").setAttribute("r", "false");
+  gId("message").style.display = "none";
   gId("hintButton").setAttribute("data", "false");
   gId("hint").style.display = "none";
 };
@@ -143,6 +128,7 @@ let createWord = () => {
   select = Math.floor(Math.random() * word.length);
   for (a = 0; a < word[select][0].length; a++) {
     let x = word[select][0][a].toUpperCase();
+
     let b = document.createElement("span");
     b.className = "l" + (x == " " ? " ls" : "");
     b.innerHTML = "&nbsp";
@@ -219,6 +205,7 @@ let showNextFail = () => {
     case 4:
       gId("g3").setAttribute("data", "true");
       gId("hintButton").setAttribute("data", "true");
+
       break;
 
     case 5:
@@ -227,6 +214,7 @@ let showNextFail = () => {
 
     case 6:
       gId("g5").setAttribute("data", "true");
+      gId("message").style.display = "block";
       break;
 
     case 7:
@@ -265,7 +253,8 @@ let gameEnd = (e) => {
     gId("rM").innerHTML =
       "Congratulations, you found the word!<br/><br/>Good Job!";
   } else {
-    gId("rT").innerText = "You Lose!";
+    gId("rT").innerText = "💀 DEAD";
+    gId("rT").style.color = "black";
     gId("rM").innerHTML =
       'The word was <br/><br/>"' +
       word[select][0].toUpperCase() +

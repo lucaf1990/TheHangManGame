@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  margin: 50px;
   background-color: #000;
   font-family: "Creepster", cursive;
   letter-spacing: 1.5rem;
@@ -218,16 +218,10 @@ span {
 }
 
 #result .button {
-  background: #afa;
-  background: linear-gradient(#afa, #6f6);
-  background: -webkit-linear-gradient(top, #afa, #6f6);
-  background: -ms-linear-gradient(top, #afa, #6f6);
-  background: -moz-linear-gradient(top, #afa, #6f6);
-  background: -o-linear-gradient(top, #afa, #6f6);
-  border-radius: 2px;
-  box-shadow: 0 0 0 5px #090;
   display: table;
-  font-weight: bold;
+  color: red;
+  background-color: black;
+  border-radius: 15px;
   padding: 10px 20px;
   margin: 40px auto;
   margin-bottom: 0;
@@ -242,10 +236,10 @@ span {
 }
 
 .l {
-  box-shadow: 0 3px 0 -1px #555;
+  box-shadow: 0 3px 0 -1px #921111;
   display: inline-block;
-  margin: 1px;
-  height: 20px;
+  margin: 20px;
+  text-align: center;
   text-transform: uppercase;
   width: 40px;
 }
@@ -262,12 +256,20 @@ span {
   position: relative;
   width: 300px;
 
-  background: linear-gradient(
-    90deg,
-    rgb(11, 11, 11, 0.6%) 0.5%,
-    rgb(255, 7, 28) 29%
-  );
+  background: linear-gradient(90deg, rgb(105, 7, 7), rgb(158, 10, 22));
   box-shadow: 0px 0px 10px rgb(153, 3, 3);
+}
+#message {
+  text-align: center;
+  color: rgb(21, 21, 21);
+  display: none;
+  margin-top: 2rem;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  animation: glitch-effect 5s infinite, appearAnimation 3s forwards;
 }
 
 #game .player {
@@ -301,7 +303,7 @@ span {
   background-color: #000;
   height: 85px;
   margin-left: 6.7rem;
-  width: 10px;
+  width: 6px;
 }
 
 .playerModel .body[data="false"] {
@@ -315,7 +317,7 @@ span {
   display: inline-block;
   height: 30px;
   position: absolute;
-  width: 10px;
+  width: 6px;
 }
 
 .playerModel .body[l="false"]:before,
@@ -324,14 +326,14 @@ span {
 }
 
 .playerModel .body:before {
-  left: 94px;
+  left: 96px;
   top: 70px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
 
 .playerModel .body:after {
-  right: -55px;
+  right: -50px;
   top: 70px;
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
@@ -348,7 +350,7 @@ span {
   display: inline-block;
   height: 50px;
   position: absolute;
-  width: 8px;
+  width: 6px;
 }
 
 .playerModel .foot[l="false"]:before,
@@ -364,7 +366,7 @@ span {
 }
 
 .playerModel .foot:after {
-  right: -51px;
+  right: -48px;
   top: 145px;
   transform: rotate(-20deg);
   -webkit-transform: rotate(-20deg);
@@ -444,12 +446,13 @@ span {
   background: #000000;
   color: red;
   border-radius: 8%;
-  box-shadow: 1px 1px 3px #999;
+  box-shadow: 1px 1px 3px #b64040;
   font-weight: bold;
   padding: 5px 10px;
   position: absolute;
   left: 30px;
   top: 15px;
+  cursor: pointer;
 }
 
 #game .hintButton[data="false"] {
@@ -460,9 +463,10 @@ span {
   background-color: rgba(0, 0, 0, 0.9);
   bottom: 0;
   left: 0;
+  text-align: center;
   margin: auto;
   margin-bottom: 20px;
-  max-width: 500px;
+  max-width: 600px;
   padding: 0 15px;
   position: absolute;
   right: 0;
@@ -485,21 +489,14 @@ span {
   margin: auto;
   margin-top: 75px;
   position: absolute;
-  right: 420px;
-  top: 0;
+  right: 550px;
+  top: 60px;
   width: 300px;
   height: 150px;
   font-size: 1.5rem;
 }
 
 #hint .title {
-  background: #fff;
-  background: linear-gradient(#fff, #bbb);
-  background: -webkit-linear-gradient(top, #fff, #bbb);
-  background: -ms-linear-gradient(top, #fff, #bbb);
-  background: -moz-linear-gradient(top, #fff, #bbb);
-  background: -o-linear-gradient(top, #fff, #bbb);
-  border-bottom: solid 1px #555;
   border-radius: 2px 2px 0 0;
   font-weight: bold;
   padding: 0px 10px;
@@ -518,6 +515,7 @@ span {
   position: absolute;
   right: -10px;
   top: -15px;
+  cursor: pointer;
 }
 
 #hint .body {
@@ -557,6 +555,7 @@ span {
 .anim {
   animation: button 3s infinite;
   -webkit-animation: button 3s infinite;
+  letter-spacing: 0rem;
 }
 
 @keyframes button {
@@ -598,5 +597,20 @@ span {
   80% {
     transform: rotate(5deg) scale(1.05);
     -webkit-transform: rotate(5deg) scale(1.05);
+  }
+}
+
+@media screen and (max-width: 642px) {
+  #message {
+    font-size: 1rem;
+    color: white;
+    position: relative;
+    top: -10px;
+    letter-spacing: 0.3rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .title {
+    font-size: 3rem;
   }
 }
